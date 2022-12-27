@@ -47,4 +47,8 @@ function getSymbol(digit){
         symbol = String.fromCharCode(codeAscii);
     }
 
+
+
+
+
 }
