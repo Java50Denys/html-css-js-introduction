@@ -30,19 +30,25 @@ const employee = employees.find(function(empl){
 //HW#18
 function getEmployee(employee, id){
     // TODO
+    //returns reference to an Employee object with a given id value
 }
 function getEmployeesBySalary(employees, salaryFrom, salaryTo){
     //TODO
+    //returns array of Employee objects that have salary in [salaryFrom, salaryTo]
 }
 function getEmployeesByCity(employees, city){
     //TODO
+     //returns array of Employee objects from a given city
 }
 function getEmployeeNames(employees){
     //TODO
+    //returns array of all Employee names
 }
 function sortEmployeesByAge(employees){
     //TODO
+     //returns array of Employee objects sorted by age in ascending order
 }
 function computeSalaryBudget(employees){
-    
+    //TODO
+    //computes and returns total salary for all Employee objects
 }
