@@ -1,12 +1,4 @@
-const employee1 = {id: 123, name: "Vasya" , birthYear: 2000,
-salary: 15000, address: {city: "Lod", country: "Israel"}};
-const employee2 = {id: 123, name: "Vasya" , birthYear: 2000,
-salary: 15000, address: {city: "Lod", country: "Israel"}};
-console.log(`employee1==employee2 is ${employee1 == employee2}`)
-const employee3 = employee1;
-console.log(`employee3==employee1 is ${employee3 == employee1}`)
-employee3.salary = 20000;
-console.log(`employee1 salary  = ${employee1.salary}`)
+
 function createEmployee(id, name, birthYear, salary, city, country){
     return{id, name, birthYear, salary, address: {city, country} }
 }
@@ -29,26 +21,45 @@ const employee = employees.find(function(empl){
 })
 //HW#18
 function getEmployee(employee, id){
-    // TODO
+   
     //returns reference to an Employee object with a given id value
+    return employees.find( empl => empl.id === id);
 }
 function getEmployeesBySalary(employees, salaryFrom, salaryTo){
-    //TODO
     //returns array of Employee objects that have salary in [salaryFrom, salaryTo]
+    return employees.filter(empl => empl.salary >= salaryFrom &&
+        empl.salary <= salaryTo) 
 }
 function getEmployeesByCity(employees, city){
-    //TODO
      //returns array of Employee objects from a given city
+     return employees.filter(empl => empl.address.city == city);
 }
 function getEmployeeNames(employees){
-    //TODO
     //returns array of all Employee names
+    return employees.map(empl => empl.name);
 }
 function sortEmployeesByAge(employees){
-    //TODO
-     //returns array of Employee objects sorted by age in ascending order
-}
+    //returns array of Employee objects sorted by age in ascending order
+     employees.sort( (e1, e2) => e2.birthYear - e1.birthYear);
+    }
 function computeSalaryBudget(employees){
-    //TODO
     //computes and returns total salary for all Employee objects
+    return employees.reduce((res, empl) => res + empl.salary, 0);
 }
+console.log(computeSalaryBudget(employees))
+function reducer(res, empl) {
+    const newRes = res + empl.salary;
+    return newRes
+}
+let field = "salary";
+//console.log(employees[0][field])
+function displayFieldValue(employees, index, field){
+    console.log(employees[index][field]);
+}
+//displayFieldValue(employees, 3, "birthYear")
+//displayFieldValue(employees, 3, "id");
+//employees[0].salary = 20000;
+//employees[0].department = "QA";
+//displayFieldValue(employees, 0, "department");
+//delete employees[0].department;
+//displayFieldValue(employees, 0, "department");
